@@ -42,25 +42,3 @@ form.addEventListener('submit', async (event) => {
     hideLoader(); 
   }
 });
-
-import { showLoader, hideLoader } from './js/render-functions.js';
-
-document.querySelector('.form').addEventListener('submit', async (event) => {
-  event.preventDefault();
-  
-  showLoader(); // Показати лоадер
-  
-  try {
-    const images = await getImagesByQuery(event.target.elements['search-text'].value);
-    if (images.length === 0) {
-      iziToast.error({ message: "Sorry, there are no images matching your search query. Please try again!" });
-    } else {
-      createGallery(images);
-    }
-  } catch (error) {
-    console.error("Error fetching images:", error);
-  } finally {
-    hideLoader(); // Приховати лоадер після отримання даних
-  }
-});
-

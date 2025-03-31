@@ -38,11 +38,4 @@ export function hideLoader() {
   document.querySelector('.loader').classList.remove('is-visible');
 }
 
-export function showLoader() {
-  document.querySelector('.loader').style.display = 'block';
-}
-
-export function hideLoader() {
-  document.querySelector('.loader').style.display = 'none';
-}
 
